@@ -8,7 +8,7 @@ authorization_token = os.environ.get("STUHEALTH_VALIDATOR_AUTHORIZATION_TOKEN")
 
 @app.route("/refreshToken", methods=["POST"])
 def validation_api():
-    if authorization_token != None and request.form["authorization_token"] != authorization_token:
+    if authorization_token != None and request.headers.get("Authorization") != "Bearer {0}".format(authorization_token):
         abort(401)
     return {
         "validation_token": getValidation()
