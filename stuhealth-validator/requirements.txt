@@ -1,0 +1,4 @@
+pillow == 9.*
+requests == 2.*
+selenium == 4.*
+Flask==2.0.2

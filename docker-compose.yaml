@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  webdriver:
+    image: "selenium/standalone-firefox"
+    shm_size: 2gb
+    container_name: "stuhealth-validator-webdriver"
+    restart: unless-stopped
+    environment:
+      - SE_NODE_MAX_SESSIONS=10
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    networks:
+      - stuhealth_validator_network
+  validator:
+    build: ./stuhealth-validator/
+    ports:
+      - "5555:5555" 
+    container_name: "stuhealth-validator-validator"
+    environment:
+      - STUHEALTH_VALIDATOR_WEBDRIVER_URL=http://webdriver:4444
+      - STUHEALTH_VALIDATOR_LISTEN_HOST=0.0.0.0
+      - STUHEALTH_VALIDATOR_LISTEN_PORT=5555
+    restart: unless-stopped
+    depends_on:
+      - webdriver
+    networks:
+      - stuhealth_validator_network
+networks:
+  stuhealth_validator_network:
+    
