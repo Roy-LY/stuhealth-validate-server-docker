@@ -20,6 +20,7 @@ services:
       - STUHEALTH_VALIDATOR_WEBDRIVER_URL=http://webdriver:4444
       - STUHEALTH_VALIDATOR_LISTEN_HOST=0.0.0.0
       - STUHEALTH_VALIDATOR_LISTEN_PORT=5555
+      - STUHEALTH_VALIDATOR_AUTHORIZATION_TOKEN=mMRZyQJYgwa
     restart: unless-stopped
     depends_on:
       - webdriver

@@ -1,11 +1,15 @@
-from flask import Flask
+from crypt import methods
+from flask import Flask, request, abort
 from validation import *
 
 app = Flask(__name__)
+authorization_token = os.environ.get("STUHEALTH_VALIDATOR_AUTHORIZATION_TOKEN")
 
 
-@app.route("/refreshToken")
+@app.route("/refreshToken", methods=["POST"])
 def validation_api():
+    if authorization_token != None and request.form["authorization_token"] != authorization_token:
+        abort(401)
     return {
         "validation_token": getValidation()
     }
