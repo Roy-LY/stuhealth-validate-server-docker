@@ -3,12 +3,13 @@ version: "3.7"
 services:
   webdriver:
     image: "selenium/standalone-firefox"
-    shm_size: 2gb
+    shm_size: 8gb
     container_name: "stuhealth-validator-webdriver"
     restart: unless-stopped
     environment:
-      - SE_NODE_MAX_SESSIONS=10
+      - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=60
     networks:
       - stuhealth_validator_network
   validator:
@@ -28,4 +29,3 @@ services:
       - stuhealth_validator_network
 networks:
   stuhealth_validator_network:
-    
