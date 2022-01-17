@@ -6,7 +6,7 @@ app = Flask(__name__)
 authorization_token = os.environ.get("STUHEALTH_VALIDATOR_AUTHORIZATION_TOKEN")
 
 
-@app.route("/refreshToken", methods=["POST"])
+@app.route("/", methods=["POST"])
 def validation_api():
     if authorization_token != None and request.headers.get("Authorization") != "Bearer {0}".format(authorization_token):
         abort(401)
