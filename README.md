@@ -1,4 +1,4 @@
-# stuhealth-validation-server-docker
+# stuhealth-validate-server-docker
 
 用于[每日健康打卡验证码解析API](https://github.com/SO-JNU/stuhealth-validate-server)的Docker封装
 
