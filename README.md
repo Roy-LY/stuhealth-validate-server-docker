@@ -20,7 +20,7 @@ $ python main.py
 $ docker-compose up -d
 
 # 运行API后即可使用
-$ curl -H "Authorization: Bearer mMRZyQJYgwa" -X POST http://127.0.0.1:5555/refreshToken
+$ curl -H "Authorization: Bearer mMRZyQJYgwa" -X POST http://127.0.0.1:5555
 ```
 
 ## 注意事项
