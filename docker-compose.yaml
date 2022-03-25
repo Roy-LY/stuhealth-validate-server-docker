@@ -16,7 +16,7 @@ services:
   validator:
     build: ./stuhealth-validator/
     ports:
-      - "127.0.0.1:5555:5555" 
+      - "47.112.104.208:5555:5555" 
     container_name: "stuhealth-validator-validator"
     environment:
       - STUHEALTH_VALIDATOR_WEBDRIVER_URL=http://webdriver:4444
